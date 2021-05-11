@@ -76,6 +76,8 @@ body{
       padding: 1rem;
       border-radius: 0.5rem;
       transition: 0.25s background, 0.25s color;
+      user-select: none;
+      cursor: pointer;
       .icon{
         color: #555;
       }
