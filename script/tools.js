@@ -34,7 +34,7 @@ document.addEventListener('keypress', (e) => {
     current = Fingers.list.rp.code;
   }
   Mousemenu.updateFinger();
-
+  updateFingerButtons();
 
 })
 
@@ -43,6 +43,14 @@ buttons.forEach(button => {
   button.addEventListener('click', (e) => {
     current = e.currentTarget.getAttribute("finger");
     Mousemenu.updateFinger();
-
+    updateFingerButtons();
   })
 })
+
+function updateFingerButtons(){
+  let buttons = document.querySelectorAll('.fingerbuttons .button');
+  buttons.forEach(button => {
+    button.classList.remove('active');
+  })
+  document.querySelector(`.fingerbuttons .button[finger='${current}']`).classList.add('active');
+}
