@@ -11,7 +11,7 @@ document.querySelector(".nav .buttons .toggleLayout").addEventListener('click', 
 })
 
 document.querySelector(".nav .buttons .clear").addEventListener('click', e => {
-  Keyboard.init(Keyboard.data.layout);
+  Keyboard.init(Keyboard.data.layout); 
   history.replaceState('','','/');
 })
 
