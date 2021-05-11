@@ -1,14 +1,14 @@
 import * as Layouts from './layouts.js';
 import Key from './key.js';
 
-let data = {
+export let data = {
   layout: 'staggered',
   keys: []
 };
 
 export function init(layout) {
   data = {
-    layout: 'staggered',
+    layout: layout,
     keys: []
   }
   let html = "";

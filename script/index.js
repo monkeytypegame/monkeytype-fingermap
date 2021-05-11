@@ -1,10 +1,6 @@
 import "./mousemenu.js";
 import * as Keyboard from './keyboard.js';
-
-
-
-
-
+import "./nav.js";
 
 window.test = function test(){
   console.log(Keyboard.encode());
