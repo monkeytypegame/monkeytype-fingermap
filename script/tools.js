@@ -1,6 +1,8 @@
 import * as Mousemenu from './mousemenu.js';
 import * as Fingers from './fingers.js';
 
+export let current = Fingers.list.li.code;
+
 function updateFingerButtons(){
   let buttons = document.querySelectorAll('.fingerbuttons .button');
   buttons.forEach(button => {
@@ -9,7 +11,6 @@ function updateFingerButtons(){
   document.querySelector(`.fingerbuttons .button[finger='${current}']`).classList.add('active');
 }
 
-export let current = Fingers.list.li.code;
 document.addEventListener('keypress', (e) => {
   if(e.key === "1"){
     current = Fingers.list.lp.code;
