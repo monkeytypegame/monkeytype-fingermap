@@ -269,6 +269,37 @@ keyboard {
   }
 }
 
+.screenshotBottom{
+  color: #aaa;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin-top: 1rem;
+  gap: 1rem;
+  align-items: center;
+  // justify-content: center;
+  .fingers{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1rem;
+    .finger{
+      display: grid;
+      grid-auto-flow: column;
+      justify-content: center;
+      gap: 0.5rem;
+      .box{
+        width: 1rem;
+        height: 1rem;
+        border-radius: 0.25rem;
+      }
+      .text{
+        font-size: 0.75rem;
+      }
+    }
+  }
+  .url{
+    text-align: right;
+  }
+}
 
 #notificationCenter {
   width: 350px;
@@ -377,6 +408,10 @@ keyboard {
 }
 .rt{
   background: var(--rt) !important;
+}
+
+.hidden{
+  display: none;
 }
 
 @keyframes fadeIn{
