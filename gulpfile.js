@@ -8,7 +8,9 @@ let eslintConfig = {
   envs: ["es6", "browser", "node"],
   globals: [
     "jQuery",
-    "$"
+    "$",
+    "html2canvas",
+    "ClipboardItem"
   ],
   parserOptions: {
     sourceType: "module",

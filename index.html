@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fingermap</title>
+  <script src="lib/html2canvas.min.js"></script>
   <script defer src="lib/jquery-3.5.1.min.js"></script>
   <script defer src="script/index.js" type="module"></script>
   <link rel="stylesheet" href="css/style.css">
@@ -24,7 +25,7 @@
   <div id="notificationCenter">
     <div class="history"></div>
   </div>
-  <div class="content">
+  <div class="content hidden">
     <div class="nav">
       <div class="title">
         <div class="top">Fingermap</div>
@@ -53,6 +54,14 @@
           </div>
           <div class="text">
             Share
+          </div>
+        </div>
+        <div class="button screenshot">
+          <div class="icon">
+            <i class="fas fa-image"></i>
+          </div>
+          <div class="text">
+            Screenshot
           </div>
         </div>
         <div class="button save">

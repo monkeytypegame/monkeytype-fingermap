@@ -19,3 +19,11 @@ if(serachParams.has('code')){
     Keyboard.init("staggered");
   }
 }
+setTimeout(()=> {
+  $(".content")
+  .css("opacity", "0")
+  .removeClass("hidden")
+  .stop(true, true)
+  .animate({ opacity: 1 }, 250, () => {
+  });
+},250)
