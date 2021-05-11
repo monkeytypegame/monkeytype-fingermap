@@ -2,8 +2,6 @@ import * as ClickTracker from './click.js';
 import * as Tools from './tools.js';
 import * as Shift from './shift.js';
 import * as Fingers from './fingers.js';
-import * as Keyboard from './keyboard.js';
-
 
 export default class Key{
   constructor(element){

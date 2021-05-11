@@ -6,6 +6,10 @@ const eslint = require('gulp-eslint');
 
 let eslintConfig = {
   envs: ["es6", "browser", "node"],
+  globals: [
+    "jQuery",
+    "$"
+  ],
   parserOptions: {
     sourceType: "module",
   },

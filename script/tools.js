@@ -1,6 +1,14 @@
 import * as Mousemenu from './mousemenu.js';
 import * as Fingers from './fingers.js';
 
+function updateFingerButtons(){
+  let buttons = document.querySelectorAll('.fingerbuttons .button');
+  buttons.forEach(button => {
+    button.classList.remove('active');
+  })
+  document.querySelector(`.fingerbuttons .button[finger='${current}']`).classList.add('active');
+}
+
 export let current = Fingers.list.li.code;
 document.addEventListener('keypress', (e) => {
   if(e.key === "1"){
@@ -47,10 +55,3 @@ buttons.forEach(button => {
   })
 })
 
-function updateFingerButtons(){
-  let buttons = document.querySelectorAll('.fingerbuttons .button');
-  buttons.forEach(button => {
-    button.classList.remove('active');
-  })
-  document.querySelector(`.fingerbuttons .button[finger='${current}']`).classList.add('active');
-}
