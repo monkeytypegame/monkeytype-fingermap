@@ -1,4 +1,5 @@
 import * as Tools from './tools.js';
+import * as Fingers from './fingers.js';
 
 let menu = document.querySelector('.mousemenu');
 
@@ -15,27 +16,7 @@ document.addEventListener("mousemove", e => {
 
 
 export function updateFinger(){
-  if(Tools.current === "lp"){
-    currentFinger = "Left Pinky";
-  }else if(Tools.current === "lr"){
-    currentFinger = "Left Ring";
-  }else if(Tools.current === "lm"){
-    currentFinger = "Left Middle";
-  }else if(Tools.current === "li"){
-    currentFinger = "Left Index";
-  }else if(Tools.current === "lt"){
-    currentFinger = "Left Thumb";
-  }else if(Tools.current === "rt"){
-    currentFinger = "Right Thumb";
-  }else if(Tools.current === "ri"){
-    currentFinger = "Right Index";
-  }else if(Tools.current === "rm"){
-    currentFinger = "Right Middle";
-  }else if(Tools.current === "rr"){
-    currentFinger = "Right Ring";
-  }else if(Tools.current === "rp"){
-    currentFinger = "Right Pinky";
-  }
+  currentFinger = Fingers.list[Tools.current].name;
   updateText();
 }
 

@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
 
+:root {
+  --lp: #ffcdd2;
+  --lr: #f87680;
+  --lm: #e92832;
+  --li: #9a191c;
+  --lt: #531313;
+  --rt: #09243d;
+  --ri: #125490;
+  --rm: #1786e7;
+  --rr: #67b3f3;
+  --rp: #BBDEFB;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Roboto Mono";
@@ -24,37 +37,6 @@
     height: 1rem;
     margin-right: 1rem;
     border-radius: .25rem;
-
-      &.lp{
-        background: #ffcdd2;
-      }
-      &.lr{
-        background: #f87680;
-      }
-      &.lm{
-        background: #e92832;
-      }
-      &.li{
-        background: #9a191c;
-      }
-      &.lt{
-        background: #531313;
-      }
-      &.rp{
-        background: #BBDEFB;
-      }
-      &.rr{
-        background: #67b3f3;
-      }
-      &.rm{
-        background: #1786e7;
-      }
-      &.ri{
-        background: #125490;
-      }
-      &.rt{
-        background: #09243d;
-      }
   }
 }
 body{
@@ -120,15 +102,15 @@ body{
       transition: 0.25s background, 0.25s opacity;
       user-select: none;
       height: 5rem;
-    width: 5rem;
+      width: 5rem;
       // opacity: 0.5;
-      &.index, &.ring{
+      &.li, &.lr, &.ri, &.rr{
         margin-top: .5rem;
       }
-      &.pinky{
+      &.lp, &.rp{
         margin-top: 1.5rem;
       }
-      &.thumb{
+      &.lt, &.rt{
         margin-top: 4rem;
       }
       &:hover{
@@ -137,40 +119,6 @@ body{
         cursor: pointer;
         // opacity: 1;
       }
-    }
-  }
-  .left .button{
-    &.pinky{
-      background: #ffcdd2;
-    }
-    &.ring{
-      background: #f87680;
-    }
-    &.middle{
-      background: #e92832;
-    }
-    &.index{
-      background: #9a191c;
-    }
-    &.thumb{
-      background: #531313;
-    }
-  }
-  .right .button{
-    &.pinky{
-      background: #BBDEFB;
-    }
-    &.ring{
-      background: #67b3f3;
-    }
-    &.middle{
-      background: #1786e7;
-    }
-    &.index{
-      background: #125490;
-    }
-    &.thumb{
-      background: #09243d;
     }
   }
 }
@@ -251,37 +199,37 @@ keyboard {
       &:hover {
         background: #444;
       }
-      &.lp{
-        background: #f44336;
-      }
-      &.lr{
-        background: #e53935;
-      }
-      &.lm{
-        background: #d32f2f;
-      }
-      &.li{
-        background: #c62828;
-      }
-      &.lt{
-        background: #b71c1c;
-      }
-
-      &.rp{
-        background: #2196F3;
-      }
-      &.rr{
-        background: #1E88E5;
-      }
-      &.rm{
-        background: #1976D2;
-      }
-      &.ri{
-        background: #1565C0;
-      }
-      &.rt{
-        background: #0D47A1;
-      }
     }
   }
+}
+
+.lp{
+  background: var(--lp) !important;
+}
+.lr{
+  background: var(--lr) !important;
+}
+.lm{
+  background: var(--lm) !important;
+}
+.li{
+  background: var(--li) !important;
+}
+.lt{
+  background: var(--lt) !important;
+}
+.rp{
+  background: var(--rp) !important;
+}
+.rr{
+  background: var(--rr) !important;
+}
+.rm{
+  background: var(--rm) !important;
+}
+.ri{
+  background: var(--ri) !important;
+}
+.rt{
+  background: var(--rt) !important;
 }

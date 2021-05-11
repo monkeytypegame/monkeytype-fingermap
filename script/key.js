@@ -1,6 +1,7 @@
 import * as ClickTracker from './click.js';
 import * as Tools from './tools.js';
 import * as Shift from './shift.js';
+import * as Fingers from './fingers.js';
 
 
 export default class Key{
@@ -60,9 +61,10 @@ export default class Key{
   refreshColor(){
     this.element.style.background = null;
     let found = [];
-    Tools.list.forEach((color,i) => {
-      if(this.fingers.includes(color)){
-        found.push(Tools.colors[i]);
+    Fingers.getFingerCodes().forEach((fingerKey) => {
+      let finger = Fingers.list[fingerKey];
+      if(this.fingers.includes(finger.code)){
+        found.push(finger.color);
       }
     })
 
@@ -79,53 +81,5 @@ export default class Key{
 
     this.element.style.background = bg;
 
-  }
-}
-
-
-function applyColor(e){
-  e.currentTarget.classList.remove("red");
-  e.currentTarget.classList.remove("green");
-  e.currentTarget.classList.remove("blue");
-
-  if(Tools.current === "red"){
-    if (e.button === 0){
-      e.currentTarget.classList.add("red");
-    }else if (e.button === 2){
-      e.currentTarget.classList.remove("red");
-    }
-  }
-  if(Tools.current === "green"){
-    if (e.button === 0){
-      e.currentTarget.classList.add("green");
-    }else if (e.button === 2){
-      e.currentTarget.classList.remove("green");
-    }
-  }
-  if(Tools.current === "blue"){
-    if (e.button === 0){
-      e.currentTarget.classList.add("blue");
-    }else if (e.button === 2){
-      e.currentTarget.classList.remove("blue");
-    }
-  }
-}
-
-function clearColor(e){
-
-  if(Tools.current === "red"){
-    if (e.button === 2){
-      e.currentTarget.classList.remove("red");
-    }
-  }
-  if(Tools.current === "green"){
-    if (e.button === 2){
-      e.currentTarget.classList.remove("green");
-    }
-  }
-  if(Tools.current === "blue"){
-    if (e.button === 2){
-      e.currentTarget.classList.remove("blue");
-    }
   }
 }

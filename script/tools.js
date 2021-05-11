@@ -1,85 +1,40 @@
 import * as Mousemenu from './mousemenu.js';
+import * as Fingers from './fingers.js';
 
-
-export let list = [
-  "lp",
-  "lr",
-  "lm",
-  "li",
-  "lt",
-
-  "rt",
-  "ri",
-  "rm",
-  "rr",
-  "rp",
-
-
-
-];
-
-export let colors = [
-
-  "#ffcdd2",
-  "#f87680",
-  "#e92832",
-  "#9a191c",
-  "#531313",
-
-
-
-  "#09243d",
-  "#125490",
-  "#1786e7",
-  "#67b3f3",
-  "#BBDEFB"
-];
-
-
-
-
-export let current = "li";
+export let current = Fingers.list.li.code;
 document.addEventListener('keypress', (e) => {
   if(e.key === "1"){
-    current = list[0];
-    Mousemenu.updateFinger();
+    current = Fingers.list.lp.code;
   }
   if(e.key === "2"){
-    current = list[1];
-    Mousemenu.updateFinger();
+    current = Fingers.list.lr.code;
   }
   if(e.key === "3"){
-    current = list[2];
-    Mousemenu.updateFinger();
+    current = Fingers.list.lm.code;
   }
   if(e.key === "4"){
-    current = list[3];
-    Mousemenu.updateFinger();
+    current = Fingers.list.li.code;
   }
   if(e.key === "5"){
-    current = list[4];
-    Mousemenu.updateFinger();
+    current = Fingers.list.lt.code;
   }
   if(e.key === "6"){
-    current = list[5];
-    Mousemenu.updateFinger();
+    current = Fingers.list.rt.code;
   }
   if(e.key === "7"){
-    current = list[6];
-    Mousemenu.updateFinger();
+    current = Fingers.list.ri.code;
   }
   if(e.key === "8"){
-    current = list[7];
-    Mousemenu.updateFinger();
+    current = Fingers.list.rm.code;
   }
   if(e.key === "9"){
-    current = list[8];
-    Mousemenu.updateFinger();
+    current = Fingers.list.rr.code;
   }
   if(e.key === "0"){
-    current = list[9];
-    Mousemenu.updateFinger();
+    current = Fingers.list.rp.code;
   }
+  Mousemenu.updateFinger();
+
 
 })
 

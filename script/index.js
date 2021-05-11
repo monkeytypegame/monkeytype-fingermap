@@ -1,6 +1,7 @@
 import Keyboard from './keyboard.js';
 import Key from './key.js';
 import "./mousemenu.js";
+import * as Fingers from "./fingers.js";
 
 function buildKeyboard() {
   let html = "";
