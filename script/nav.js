@@ -16,11 +16,12 @@ document.querySelector(".nav .buttons .clear").addEventListener('click', e => {
 })
 
 document.querySelector(".nav .buttons .share").addEventListener('click', e => {
-    navigator.clipboard.writeText(window.location.href+"?code=" + Keyboard.encode()).then(() => {
-      Notifications.add('Link copied',1);
-    }, (e) => {
-      Notifications.add('Something went wrong: ' + e,-1);
-    });
+  history.replaceState('','','/');
+  navigator.clipboard.writeText(window.location.href+"?code=" + Keyboard.encode()).then(() => {
+    Notifications.add('Link copied',1);
+  }, (e) => {
+    Notifications.add('Something went wrong: ' + e,-1);
+  });
 })
 
 document.querySelector(".nav .buttons .save").addEventListener('click', e => {
