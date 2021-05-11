@@ -64,11 +64,11 @@ body{
 .nav{
   display: grid;
   grid-template-columns: 1fr auto;
+  margin-bottom: 2rem;
     
   .title{
     color: #aaa;
     width: min-content;
-    margin-bottom: 2rem;
     .top{
       font-size: 3rem;
       line-height: 3rem;

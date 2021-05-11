@@ -1,4 +1,4 @@
-import * as Mousemenu from './mousemenu.js';
+// import * as Mousemenu from './mousemenu.js';
 import * as Fingers from './fingers.js';
 
 export let current = Fingers.list.li.code;
@@ -42,7 +42,7 @@ document.addEventListener('keypress', (e) => {
   if(e.key === "0"){
     current = Fingers.list.rp.code;
   }
-  Mousemenu.updateFinger();
+  // Mousemenu.updateFinger();
   updateFingerButtons();
 
 })
@@ -51,7 +51,7 @@ let buttons = document.querySelectorAll('.fingerbuttons .button');
 buttons.forEach(button => {
   button.addEventListener('click', (e) => {
     current = e.currentTarget.getAttribute("finger");
-    Mousemenu.updateFinger();
+    // Mousemenu.updateFinger();
     updateFingerButtons();
   })
 })
