@@ -14,6 +14,9 @@ document.addEventListener("mousemove", e => {
   menu.style.top = top + + 25 + 'px';
 })
 
+function updateText(){
+  menu.innerHTML = `<div class="top"><box class="${Tools.current}"></box>${currentFinger}</div><div>${multi ? "Multi mode" : ""}</div>`;
+}
 
 export function updateFinger(){
   currentFinger = Fingers.list[Tools.current].name;
@@ -25,6 +28,3 @@ export function updateMultiple(tf){
   updateText();
 }
 
-function updateText(){
-  menu.innerHTML = `<div class="top"><box class="${Tools.current}"></box>${currentFinger}</div><div>${multi ? "Multi mode" : ""}</div>`;
-}
