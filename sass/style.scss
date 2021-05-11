@@ -43,11 +43,16 @@ body{
   background: #1e1e1e;
   display: grid;
   justify-content: center;
-  align-content: center;
+  // align-content: center;
   height: 100vh;
   padding: 0;
   margin: 0;
   // cursor: default;
+}
+.content{
+  display: grid;
+  align-content: center;
+  padding: 4rem 0;
 }
 
 
