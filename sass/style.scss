@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto Mono";
+}
+.mousemenu{
+  color: #ccc;
+  // opacity: .5;
+  position: fixed;
+  background: rgba(0,0,0,.5);
+  padding: 1rem;
+  border-radius: .25rem;
+  z-index: 999;
+  display: grid;
+  .top{
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+  }
+  box{
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 1rem;
+    border-radius: .25rem;
+
+      &.lp{
+        background: #ffcdd2;
+      }
+      &.lr{
+        background: #f87680;
+      }
+      &.lm{
+        background: #e92832;
+      }
+      &.li{
+        background: #9a191c;
+      }
+      &.lt{
+        background: #531313;
+      }
+      &.rp{
+        background: #BBDEFB;
+      }
+      &.rr{
+        background: #67b3f3;
+      }
+      &.rm{
+        background: #1786e7;
+      }
+      &.ri{
+        background: #125490;
+      }
+      &.rt{
+        background: #09243d;
+      }
+  }
+}
+body{
+  background: #1e1e1e;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  // cursor: default;
+}
+
+
+.title{
+  color: #aaa;
+  width: min-content;
+  margin-bottom: 2rem;
+  .top{
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  .bottom{
+    font-size:1rem;
+    opacity: .5;
+    text-align: right;
+  }
+}
+.tips{
+    text-align: center;
+    margin-top: 2rem;
+    color: #444;
+}
+.fingerbuttons{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
+  gap: 2rem;
+  .title{
+    color: #aaa;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .left, .right{
+    background: #222;
+    border-radius: 0.25rem;
+    padding: 2rem;
+  }
+  .buttons{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 2rem;
+    justify-items: center;
+    .button{
+      background: #333;
+      // color: #111;
+      color: transparent;
+      border-radius: .25rem;
+      text-align: center;
+      padding: 1rem;
+      height: min-content;
+      cursor: pointer;
+      transition: 0.25s background, 0.25s opacity;
+      user-select: none;
+      height: 5rem;
+    width: 5rem;
+      // opacity: 0.5;
+      &.index, &.ring{
+        margin-top: .5rem;
+      }
+      &.pinky{
+        margin-top: 1.5rem;
+      }
+      &.thumb{
+        margin-top: 4rem;
+      }
+      &:hover{
+        background: #444;
+        // color: #aaa;
+        cursor: pointer;
+        // opacity: 1;
+      }
+    }
+  }
+  .left .button{
+    &.pinky{
+      background: #ffcdd2;
+    }
+    &.ring{
+      background: #f87680;
+    }
+    &.middle{
+      background: #e92832;
+    }
+    &.index{
+      background: #9a191c;
+    }
+    &.thumb{
+      background: #531313;
+    }
+  }
+  .right .button{
+    &.pinky{
+      background: #BBDEFB;
+    }
+    &.ring{
+      background: #67b3f3;
+    }
+    &.middle{
+      background: #1786e7;
+    }
+    &.index{
+      background: #125490;
+    }
+    &.thumb{
+      background: #09243d;
+    }
+  }
+}
+keyboard {
+  background: #222;
+  display: grid;
+  width: min-content;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  gap: 0.5rem;
+  row {
+    display: grid;
+    grid-auto-flow: column;
+    width: min-content;
+    gap: 0.5rem;
+    justify-content: space-between;
+    width: 100%;
+    key {
+      position: relative;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      width: 5rem;
+      height: 5rem;
+      background: #333;
+      // color: rgba(0,0,0,.5);
+      color: transparent;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      // justify-content: center;
+      transition: 0.25s background;
+      cursor: pointer;
+      user-select: none;
+      &[fontSize="2"] {
+        font-size: 1.25rem;
+      }
+      &[size="1.25"] {
+        width: 6.25rem;
+      }
+      &[size="1.5"] {
+        width: 7.5rem;
+      }
+      &[size="1.75"] {
+        width: 8.75rem;
+      }
+      &[size="2"] {
+        width: 10rem;
+      }
+      &[size="2.25"] {
+        width: 11.25rem;
+      }
+      &[size="2.5"] {
+        width: 12.5rem;
+      }
+      &[size="2.75"] {
+        width: 14.75rem;
+      }
+      &[size="6.25"] {
+        width: 31.25rem;
+      }
+      &[size="6.5"] {
+        width: 33.5rem;
+      }
+
+      &[homing="yes"]::after {
+        content: "";
+        position: absolute;
+        background: #222;
+        // background: red;
+        height: .25rem;
+        top: 4rem;
+        left: 1.5rem;
+        width: 2rem;
+        border-radius: 0.25rem;
+      }
+
+      &:hover {
+        background: #444;
+      }
+      &.lp{
+        background: #f44336;
+      }
+      &.lr{
+        background: #e53935;
+      }
+      &.lm{
+        background: #d32f2f;
+      }
+      &.li{
+        background: #c62828;
+      }
+      &.lt{
+        background: #b71c1c;
+      }
+
+      &.rp{
+        background: #2196F3;
+      }
+      &.rr{
+        background: #1E88E5;
+      }
+      &.rm{
+        background: #1976D2;
+      }
+      &.ri{
+        background: #1565C0;
+      }
+      &.rt{
+        background: #0D47A1;
+      }
+    }
+  }
+}
