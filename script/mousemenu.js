@@ -15,7 +15,9 @@ document.addEventListener("mousemove", e => {
 })
 
 function updateText(){
-  menu.innerHTML = `<div class="top"><box class="${Tools.current}"></box>${currentFinger}</div><div>${multi ? "Multi mode" : ""}</div>`;
+  menu.innerHTML = `<div>${multi ? "Multi mode" : ""}</div>`;
+  // menu.innerHTML = `<div class="top"><box class="${Tools.current}"></box>${currentFinger}</div><div>${multi ? "Multi mode" : ""}</div>`;
+
 }
 
 export function updateFinger(){

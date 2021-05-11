@@ -1,39 +1,19 @@
-import * as Keyboard from './keyboard.js';
-import Key from './key.js';
 import "./mousemenu.js";
+import * as Keyboard from './keyboard.js';
 
-function buildKeyboard() {
-  let html = "";
-  Keyboard.matrix.forEach((row) => {
-    html += "<row>";
-    row.forEach((key) => {
-      let attr = "";
-      if (key.size) {
-        attr += `size='${key.size}' `;
-      }
-      if (key.key.length === 1) {
-        attr += `fontSize='2' `;
-      }
-      if (key.homing === true) {
-        attr += `homing='yes' `;
-      }
-      html += `<key ${attr}>`;
 
-      if (key.key.length === 2) {
-        html += `<div>${key.key[0]}</div>`;
-        html += `<div>${key.key[1]}</div>`;
-      } else if (key.key.length === 1) {
-        html += `<div>${key.key[0]}</div>`;
-      }
-      html += "</key>";
-    });
-    html += "</row>";
-  });
-  document.querySelector("keyboard").innerHTML = html;
+
+
+
+
+window.test = function test(){
+  console.log(Keyboard.encode());
 }
 
-buildKeyboard();
+let serachParams = new URLSearchParams(window.location.search);
 
-document.querySelectorAll("key").forEach((key) => {
-  new Key(key);
-});
+if(serachParams.has('code')){
+  Keyboard.decode(serachParams.get('code'));
+}else{
+  Keyboard.init("staggered");
+}

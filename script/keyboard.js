@@ -1,425 +1,79 @@
-export let staggered = [
-  [
-    {
-      key: ["`", "~"]
-    },
-    {
-      key: ["!", "1"]
-    },
-    {
-      key: ["@", "2"]
-    },
-    {
-      key: ["#", "3"]
-    },
-    {
-      key: ["$", "4"]
-    },
-    {
-      key: ["%", "5"]
-    },
-    {
-      key: ["^", "6"]
-    },
-    {
-      key: ["&", "7"]
-    },
-    {
-      key: ["*", "8"]
-    },
-    {
-      key: ["(", "9"]
-    },
-    {
-      key: [")", "0"]
-    },
-    {
-      key: ["_", "-"]
-    },
-    {
-      key: ["+", "="]
-    },
-    {
-      key: ["Backspace"],
-      size: 2,
-      legend: {
-        position: "center"
-      }
-    }
-  ],
-  [
-    {
-      key: ["Tab"],
-      size: 1.5
-    },
-    {
-      key: ["Q"]
-    },
-    {
-      key: ["W"]
-    },
-    {
-      key: ["E"]
-    },
-    {
-      key: ["R"]
-    },
-    {
-      key: ["T"]
-    },
-    {
-      key: ["Y"]
-    },
-    {
-      key: ["U"]
-    },
-    {
-      key: ["I"]
-    },
-    {
-      key: ["O"]
-    },
-    {
-      key: ["P"]
-    },
-    {
-      key: ["{", "["]
-    },
-    {
-      key: ["}", "]"]
-    },
-    {
-      key: ["|", "\\"],
-      size: 1.5
-    }
-  ],
-  [
-    {
-      key: ["Caps"],
-      size: 1.75
-    },
-    {
-      key: ["A"]
-    },
-    {
-      key: ["S"]
-    },
-    {
-      key: ["D"]
-    },
-    {
-      key: ["F"],
-      homing: true
-    },
-    {
-      key: ["G"]
-    },
-    {
-      key: ["H"]
-    },
-    {
-      key: ["J"],
-      homing: true
-    },
-    {
-      key: ["K"]
-    },
-    {
-      key: ["L"]
-    },
-    {
-      key: [":", ";"]
-    },
-    {
-      key: ['"', "'"]
-    },
-    {
-      key: ["Enter"],
-      size: 2.25
-    }
-  ],
-  [
-    {
-      key: ["Shift"],
-      size: 2.25
-    },
-    {
-      key: ["Z"]
-    },
-    {
-      key: ["X"]
-    },
-    {
-      key: ["C"]
-    },
-    {
-      key: ["V"]
-    },
-    {
-      key: ["B"]
-    },
-    {
-      key: ["N"]
-    },
-    {
-      key: ["M"]
-    },
-    {
-      key: ["<", ","]
-    },
-    {
-      key: [">", "."]
-    },
-    {
-      key: ["?", "/"]
-    },
-    {
-      key: ["Shift"],
-      size: 2.75
-    }
-  ],
-  [
-    {
-      key: ["Ctrl"],
-      size: 1.25
-    },
-    {
-      key: ["Win"],
-      size: 1.25
-    },
-    {
-      key: ["Alt"],
-      size: 1.25
-    },
-    {
-      key: [""],
-      size: 6.5
-    },
-    {
-      key: ["Alt"],
-      size: 1.25
-    },
-    {
-      key: ["Win"],
-      size: 1.25
-    },
-    {
-      key: ["Meta"],
-      size: 1.25
-    },
-    {
-      key: ["Ctrl"],
-      size: 1.25
-    }
-  ]
-];
+import * as Layouts from './layouts.js';
+import Key from './key.js';
 
-export let matrix = [
-  [
-    {
-      key: ["`", "~"]
-    },
-    {
-      key: ["!", "1"]
-    },
-    {
-      key: ["@", "2"]
-    },
-    {
-      key: ["#", "3"]
-    },
-    {
-      key: ["$", "4"]
-    },
-    {
-      key: ["%", "5"]
-    },
-    {
-      key: ["^", "6"]
-    },
-    {
-      key: ["&", "7"]
-    },
-    {
-      key: ["*", "8"]
-    },
-    {
-      key: ["(", "9"]
-    },
-    {
-      key: [")", "0"]
-    },
-    {
-      key: ["Bksp"],
-      size: 1
+let data = {
+  layout: 'staggered',
+  keys: []
+};
+
+export function init(layout) {
+  data = {
+    layout: 'staggered',
+    keys: []
+  }
+  let html = "";
+  Layouts[layout].forEach((row) => {
+    html += "<row>";
+    row.forEach((key) => {
+      let attr = "";
+      if (key.size) {
+        attr += `size='${key.size}' `;
+      }
+      if (key.key.length === 1) {
+        attr += `fontSize='2' `;
+      }
+      if (key.homing === true) {
+        attr += `homing='yes' `;
+      }
+      html += `<key ${attr}>`;
+
+      if (key.key.length === 2) {
+        html += `<div>${key.key[0]}</div>`;
+        html += `<div>${key.key[1]}</div>`;
+      } else if (key.key.length === 1) {
+        html += `<div>${key.key[0]}</div>`;
+      }
+      html += "</key>";
+    });
+    html += "</row>";
+  });
+  document.querySelector("keyboard").innerHTML = html;
+  
+  document.querySelectorAll("key").forEach((key) => {
+    data.keys.push(new Key(key));
+  });
+}
+
+export function encode(){
+  let ret = "";
+  ret += data.layout + "0";
+  data.keys.forEach(key => {
+    if(key.fingers.length === 0){
+      ret += "";
+    }else{
+      ret += key.fingers.join('-');
     }
-  ],
-  [
-    {
-      key: ["Tab"],
-      size: 1
-    },
-    {
-      key: ["Q"]
-    },
-    {
-      key: ["W"]
-    },
-    {
-      key: ["E"]
-    },
-    {
-      key: ["R"]
-    },
-    {
-      key: ["T"]
-    },
-    {
-      key: ["Y"]
-    },
-    {
-      key: ["U"]
-    },
-    {
-      key: ["I"]
-    },
-    {
-      key: ["O"]
-    },
-    {
-      key: ["P"]
-    },
-    {
-      key: ["|", "\\"],
-      size: 1
-    }
-  ],
-  [
-    {
-      key: ["Caps"],
-      size: 1
-    },
-    {
-      key: ["A"]
-    },
-    {
-      key: ["S"]
-    },
-    {
-      key: ["D"]
-    },
-    {
-      key: ["F"],
-      homing: true
-    },
-    {
-      key: ["G"]
-    },
-    {
-      key: ["H"]
-    },
-    {
-      key: ["J"],
-      homing: true
-    },
-    {
-      key: ["K"]
-    },
-    {
-      key: ["L"]
-    },
-    {
-      key: [":", ";"]
-    },
-    {
-      key: ["Entr"],
-      size: 1
-    }
-  ],
-  [
-    {
-      key: ["Shft"],
-      size: 1
-    },
-    {
-      key: ["Z"]
-    },
-    {
-      key: ["X"]
-    },
-    {
-      key: ["C"]
-    },
-    {
-      key: ["V"]
-    },
-    {
-      key: ["B"]
-    },
-    {
-      key: ["N"]
-    },
-    {
-      key: ["M"]
-    },
-    {
-      key: ["<", ","]
-    },
-    {
-      key: [">", "."]
-    },
-    {
-      key: ["?", "/"]
-    },
-    {
-      key: ["Shft"],
-      size: 1
-    }
-  ],
-  [
-    {
-      key: ["Ctrl"],
-      size: 1
-    },
-    {
-      key: ["Win"],
-      size: 1
-    },
-    {
-      key: ["Supr"],
-      size: 1
-    },
-    {
-      key: ["Alt"],
-      size: 1
-    },
-    {
-      key: ["Lowr"],
-      size: 1
-    },
-    {
-      key: [""],
-      size: 2.1
-    },
-    {
-      key: ["Uppr"],
-      size: 1
-    },
-    {
-      key: ["Alt"],
-      size: 1
-    },
-    {
-      key: ["Win"],
-      size: 1
-    },
-    {
-      key: ["Meta"],
-      size: 1
-    },
-    {
-      key: ["Ctrl"],
-      size: 1
-    }
-  ]
-];
+    ret += "0";
+  })
+  return ret;
+}
+
+export function decode(code){
+  try{
+    let codeSplit = code.split("0");
+    let layout = codeSplit.shift();
+    let keys = codeSplit;
+    init(layout);
+    data.keys.forEach((key,index) => {
+      let codeKey = keys[index];
+      if(codeKey !== ""){
+        let fingers = codeKey.split('-');
+        key.fingers = fingers;
+        key.refreshColor();
+      }
+    })
+  }catch(e){
+    init("staggered");
+    history.replaceState('','','/');
+  }
+}
