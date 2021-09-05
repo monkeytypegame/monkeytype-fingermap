@@ -18,12 +18,14 @@ document.querySelector(".nav .buttons .clear").addEventListener('click', e => {
 document.querySelector(".nav .buttons .share").addEventListener('click', e => {
   try{
     history.replaceState('','','/');
-    navigator.clipboard.writeText(window.location.href+"?code=" + Keyboard.encode()).then(() => {
+    let link = window.location.href+"?code=" + Keyboard.encode();
+    navigator.clipboard.writeText(link).then(() => {
       Notifications.add('Link copied',1);
     }, (e) => {
       Notifications.add('Something went wrong: ' + e,-1);
     });
   }catch(e){
+    alert("Copying to clipboard failed, here's the link instead: " + link);
     Notifications.add('Something went wrong: ' + e,-1);
   }
 })
