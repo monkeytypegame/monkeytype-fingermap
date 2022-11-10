@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start:dev": "gulp compile && gulp watch"
+    "dev": "gulp compile && gulp watch"
   },
   "author": "",
   "license": "ISC",
@@ -12,7 +12,8 @@
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-eslint": "^6.0.0",
-    "gulp-sass": "^4.1.0"
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.56.1"
   },
   "dependencies": {
     "gulp-live-server": "^0.0.31"

@@ -1,17 +1,11 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const del = require('del');
-const eslint = require('gulp-eslint');
-
+const gulp = require("gulp");
+const sass = require("gulp-sass")(require("sass"));
+const del = require("del");
+const eslint = require("gulp-eslint");
 
 let eslintConfig = {
   envs: ["es6", "browser", "node"],
-  globals: [
-    "jQuery",
-    "$",
-    "html2canvas",
-    "ClipboardItem"
-  ],
+  globals: ["jQuery", "$", "html2canvas", "ClipboardItem"],
   parserOptions: {
     sourceType: "module",
   },
@@ -77,37 +71,51 @@ let eslintConfig = {
   },
 };
 
-gulp.task('styles', () => {
-    return gulp.src('sass/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./css/'));
+gulp.task("styles", () => {
+  return gulp
+    .src("sass/**/*.scss")
+    .pipe(sass().on("error", sass.logError))
+    .pipe(gulp.dest("./build/css/"));
 });
 
-gulp.task('clean', () => {
-    return del([
-        'css/main.css',
-    ]);
+gulp.task("clean", () => {
+  return del(["css/main.css"]);
+});
+
+gulp.task("copy-js", () => {
+  return gulp.src("script/**/*.js").pipe(gulp.dest("build/script"));
+});
+
+gulp.task("copy-html", () => {
+  return gulp.src("*.html").pipe(gulp.dest("build"));
+});
+
+gulp.task("copy-lib", () => {
+  return gulp.src("lib/**/*").pipe(gulp.dest("build/lib"));
 });
 
 gulp.task("lint", function () {
-  return gulp.src('script/*.js')
+  return gulp
+    .src("script/*.js")
     .pipe(eslint(eslintConfig))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
 
-
-
-
-gulp.task('compile', (done) => {
-  gulp.series(['clean', 'styles','lint'])(done);
+gulp.task("compile", (done) => {
+  gulp.series(["clean", "styles", "copy-js", "copy-html", "copy-lib", "lint"])(
+    done
+  );
 });
 
-gulp.task('watch', () => {
-  gulp.watch(['sass/**/*.scss'], (done) => {
-    gulp.series(['clean', 'styles'])(done);
+gulp.task("watch", () => {
+  gulp.watch(["sass/**/*.scss"], (done) => {
+    gulp.series(["clean", "styles"])(done);
   });
-  gulp.watch(['script/*.js'], (done) => {
-    gulp.series(['lint'])(done);
+  gulp.watch(["script/*.js"], (done) => {
+    gulp.series(["lint", "copy-js"])(done);
+  });
+  gulp.watch(["*.html"], (done) => {
+    gulp.series(["copy-html"])(done);
   });
 });
