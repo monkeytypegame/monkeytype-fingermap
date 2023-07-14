@@ -1,7 +1,28 @@
 // import * as Mousemenu from './mousemenu.js';
 import * as Fingers from './fingers.js';
+import * as Shift from './shift.js';
+import * as Util from './util.js';
 
 export let current = Fingers.list.li.code;
+
+export function goNextFinger() {
+  current = Fingers.nextFinger(current).code;
+  updateFingerButtons();
+}
+
+export function goPrevFinger() {
+  current = Fingers.prevFinger(current).code;
+  updateFingerButtons();
+}
+
+const WHEEL_THROTTLE_MILLIS = 150;
+export function getThrottledWheelHandler() {
+  return Util.throttle((e) => {
+    e.deltaY > 0 || e.deltaX > 0
+        ? goNextFinger()
+        : goPrevFinger();
+  }, WHEEL_THROTTLE_MILLIS);
+}
 
 function updateFingerButtons(){
   let buttons = document.querySelectorAll('.fingerbuttons .button');
@@ -11,40 +32,13 @@ function updateFingerButtons(){
   document.querySelector(`.fingerbuttons .button[finger='${current}']`).classList.add('active');
 }
 
-document.addEventListener('keypress', (e) => {
-  if(e.key === "1"){
-    current = Fingers.list.lp.code;
+document.addEventListener('keydown', (e) => {
+  if (e.key === "ArrowRight") {
+    goNextFinger()
   }
-  if(e.key === "2"){
-    current = Fingers.list.lr.code;
+  if (e.key === "ArrowLeft") {
+    goPrevFinger()
   }
-  if(e.key === "3"){
-    current = Fingers.list.lm.code;
-  }
-  if(e.key === "4"){
-    current = Fingers.list.li.code;
-  }
-  if(e.key === "5"){
-    current = Fingers.list.lt.code;
-  }
-  if(e.key === "6"){
-    current = Fingers.list.rt.code;
-  }
-  if(e.key === "7"){
-    current = Fingers.list.ri.code;
-  }
-  if(e.key === "8"){
-    current = Fingers.list.rm.code;
-  }
-  if(e.key === "9"){
-    current = Fingers.list.rr.code;
-  }
-  if(e.key === "0"){
-    current = Fingers.list.rp.code;
-  }
-  // Mousemenu.updateFinger();
-  updateFingerButtons();
-
 })
 
 let buttons = document.querySelectorAll('.fingerbuttons .button');
@@ -55,4 +49,3 @@ buttons.forEach(button => {
     updateFingerButtons();
   })
 })
-

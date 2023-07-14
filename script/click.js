@@ -1,9 +1,6 @@
 export let leftdrag = false;
 export let rightdrag = false;
 
-document.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
-})
 document.addEventListener("mousedown", (e) => {
   if(e.button === 0){
     leftdrag = true;
