@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap";
 
 :root {
   --lp: #ffcdd2;
@@ -40,7 +42,7 @@
   }
 }
 body{
-  background: #1e1e1e;
+  background: #323437;
   display: grid;
   justify-content: center;
   // align-content: center;
@@ -51,27 +53,38 @@ body{
   // cursor: default;
 }
 .content{
-  display: grid;
-  align-content: center;
-  padding: 4rem 0;
+  padding: 0 2rem;
+  max-width: 1500px;
 }
 
 .nav{
   display: grid;
-  grid-template-columns: 1fr auto;
-  margin-bottom: 2rem;
-    
+  grid-template-columns: 1fr 1fr;
+  margin: 2rem 0;
+
   .title{
-    color: #aaa;
+    color: #d1d0c5;
     width: min-content;
     .top{
-      font-size: 3rem;
-      line-height: 3rem;
+      font-family: 'lexend deca';
+      font-size: 2.4rem;
+      line-height: 2.4rem;
     }
     .bottom{
-      font-size:1rem;
-      color: #555;
-      text-align: right;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      justify-content: start;
+      align-items: center;
+      gap: .5rem;
+      font-family: 'lexend deca';
+      font-size: .75rem;
+      color: #646669;
+      img{
+        filter: saturate(0);
+        height: 1.75em;
+        width: 1.75em;
+        opacity: .5;
+      }
     }
   }
   .buttons{
@@ -92,7 +105,8 @@ body{
         color: #555;
       }
       .text{
-        color: #aaa;
+        color: #d1d0c5;
+        text-wrap: nowrap;
       }
       &:hover{
         background: rgba(0,0,0,.25);
@@ -107,7 +121,7 @@ body{
 .tips{
     text-align: center;
     margin-top: 2rem;
-    color: #444;
+    color: #646669;
 }
 .fingerbuttons{
   display: grid;
@@ -115,19 +129,19 @@ body{
   margin-top: 2rem;
   gap: 2rem;
   .title{
-    color: #aaa;
+    color: #d1d0c5;
     margin-bottom: 1rem;
     text-align: center;
   }
   .left, .right{
-    background: #222;
-    border-radius: 0.25rem;
-    padding: 2rem;
+    background: #2c2e31;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
   }
   .buttons{
     display: grid;
     grid-auto-flow: column;
-    gap: 2rem;
+    gap: 1.5rem;
     justify-items: center;
     .button{
       background: #333;
@@ -156,13 +170,13 @@ body{
       }
       // opacity: 0.5;
       &.li, &.lr, &.ri, &.rr{
-        margin-top: .5rem;
+        margin-top: .25rem;
       }
       &.lp, &.rp{
         margin-top: 1.5rem;
       }
       &.lt, &.rt{
-        margin-top: 4rem;
+        margin-top: 3.5rem;
       }
       &:hover{
         background: #444;
@@ -174,11 +188,11 @@ body{
   }
 }
 keyboard {
-  background: #222;
+  background: #2c2e31;
   display: grid;
   width: 100%;
   justify-content: center;
-  border-radius: 0.25rem;
+  border-radius: .5rem;
   padding: 1rem;
   gap: 0.5rem;
   row {
@@ -194,8 +208,8 @@ keyboard {
       font-size: 1rem;
       width: 5rem;
       height: 5rem;
-      background: #333;
-      color: #111;
+      background: #646669;
+      color: #2c2e31;
       // color: transparent;
       padding: 1rem;
       display: flex;
@@ -248,8 +262,7 @@ keyboard {
       &[homing="yes"]::after {
         content: "";
         position: absolute;
-        background: #222;
-        // background: red;
+        background: #2c2e31;
         height: .25rem;
         top: 4rem;
         left: 1.5rem;
@@ -265,7 +278,7 @@ keyboard {
 }
 
 .screenshotBottom{
-  color: #aaa;
+  color: #d1d0c5;
   display: grid;
   grid-template-columns: auto 1fr;
   margin-top: 1rem;
