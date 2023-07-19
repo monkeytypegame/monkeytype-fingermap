@@ -1,4 +1,5 @@
 import * as Layouts from './layouts.js';
+import * as Tools from './tools.js';
 import Key from './key.js';
 
 export let data = {
@@ -25,6 +26,9 @@ export function init(layout) {
       if (key.homing === true) {
         attr += `homing='yes' `;
       }
+      if (key.code) {
+        attr += `code=${key.code} `
+      }
       html += `<key ${attr}>`;
 
       if (key.key.length === 2) {
@@ -38,10 +42,20 @@ export function init(layout) {
     html += "</row>";
   });
   document.querySelector("keyboard").innerHTML = html;
-  
+
   document.querySelectorAll("key").forEach((key) => {
     data.keys.push(new Key(key));
   });
+
+  document.querySelector("keyboard").addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  })
+
+  let wheelHandler = Tools.getThrottledWheelHandler();
+  document.querySelector("keyboard").addEventListener("wheel", (e) => {
+    e.preventDefault();
+    wheelHandler(e);
+  })
 }
 
 export function encode(){

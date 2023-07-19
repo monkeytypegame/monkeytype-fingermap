@@ -65,6 +65,21 @@ export function getFingerCodes(){
   return Object.keys(list);
 }
 
+export function nextFinger(fCode) {
+  const codes = this.getFingerCodes();
+  const nextCode = codes[(codes.indexOf(fCode) + 1) % codes.length];
+  return list[nextCode];
+}
+
+export function prevFinger(fCode) {
+  const codes = this.getFingerCodes();
+  let nextIdx = codes.indexOf(fCode) - 1;
+  if (nextIdx < 0)
+    nextIdx = codes.length + nextIdx;
+  const nextCode = codes[nextIdx];
+  return list[nextCode];
+}
+
 function initColors(){
   getFingerCodes().forEach(fCode => {
     list[fCode].color = getComputedStyle(document.documentElement).getPropertyValue('--'+fCode).trim();
