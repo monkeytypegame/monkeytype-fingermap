@@ -2,6 +2,17 @@
 @import "https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap";
 
 :root {
+  --bg-color: #323437;
+  --main-color: #e2b714;
+  --caret-color: #e2b714;
+  --sub-color: #646669;
+  --sub-alt-color: #2c2e31;
+  --text-color: #d1d0c5;
+  --error-color: #ca4754;
+  --error-extra-color: #7e2a33;
+  --colorful-error-color: #ca4754;
+  --colorful-error-extra-color: #7e2a33;
+  --roundness: 0.5rem;
   --lp: #ffcdd2;
   --lr: #f87680;
   --lm: #e92832;
@@ -37,7 +48,7 @@
     border-radius: .25rem; }
 
 body {
-  background: #323437;
+  background: var(--bg-color);
   display: grid;
   justify-content: center;
   height: 100vh;
@@ -53,7 +64,7 @@ body {
   grid-template-columns: 1fr 1fr;
   margin: 2rem 0; }
   .nav .title {
-    color: #d1d0c5;
+    color: var(--text-color);
     width: min-content; }
     .nav .title .top {
       font-family: 'lexend deca';
@@ -67,7 +78,7 @@ body {
       align-items: center;
       gap: .5rem;
       font-size: .75rem;
-      color: #646669; }
+      color: var(--sub-color); }
     .nav .title .bottom img {
       filter: saturate(0);
       height: 1.75em;
@@ -84,14 +95,14 @@ body {
       grid-auto-flow: column;
       gap: .75rem;
       padding: 1rem;
-      border-radius: 0.5rem;
+      border-radius: var(--roundness);
       transition: 0.25s background, 0.25s color;
       user-select: none;
       cursor: pointer; }
       .nav .buttons .button .icon {
         color: #555; }
       .nav .buttons .button .text {
-        color: #d1d0c5;
+        color: var(--text-color);
         text-wrap: nowrap; }
       .nav .buttons .button:hover {
         background: rgba(0, 0, 0, 0.25);
@@ -101,7 +112,7 @@ body {
 .tips {
   text-align: center;
   margin-top: 2rem;
-  color: #646669; }
+  color: var(--sub-color); }
 
 .fingerbuttons {
   display: grid;
@@ -109,12 +120,12 @@ body {
   margin-top: 2rem;
   gap: 2rem; }
   .fingerbuttons .title {
-    color: #d1d0c5;
+    color: var(--text-color);
     margin-bottom: 1rem;
     text-align: center; }
   .fingerbuttons .left, .fingerbuttons .right {
-    background: #2c2e31;
-    border-radius: 0.5rem;
+    background: var(--sub-alt-color);
+    border-radius: var(--roundness);
     padding: 1.5rem; }
   .fingerbuttons .buttons {
     display: grid;
@@ -154,11 +165,11 @@ body {
         cursor: pointer; }
 
 keyboard {
-  background: #2c2e31;
+  background: var(--sub-alt-color);
   display: grid;
   width: 100%;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: var(--roundness);
   padding: 1rem;
   gap: 0.5rem; }
   keyboard row {
@@ -170,12 +181,12 @@ keyboard {
     width: 100%; }
     keyboard row key {
       position: relative;
-      border-radius: 0.5rem;
+      border-radius: var(--roundness);
       font-size: 1rem;
       width: 5rem;
       height: 5rem;
-      background: #646669;
-      color: #2c2e31;
+      background: var(--sub-color);
+      color: var(--sub-alt-color);
       padding: 1rem;
       display: flex;
       flex-direction: column;
@@ -212,17 +223,17 @@ keyboard {
       keyboard row key[homing="yes"]::after {
         content: "";
         position: absolute;
-        background: #2c2e31;
+        background: var(--sub-alt-color);
         height: .25rem;
         top: 4rem;
         left: 1.5rem;
         width: 2rem;
         border-radius: 0.25rem; }
       keyboard row key:hover {
-        background: #444; }
+        background: var(--text-color); }
 
 .screenshotBottom {
-  color: #d1d0c5;
+  color: var(--text-color);
   display: grid;
   grid-template-columns: auto 1fr;
   margin-top: 1rem;
@@ -264,7 +275,7 @@ keyboard {
     color: #ccc;
     display: grid;
     grid-template-columns: min-content auto min-content;
-    border-radius: 0.5rem;
+    border-radius: var(--roundness);
     border-width: 0.25rem; }
     #notificationCenter .notif .icon {
       color: #ccc;
@@ -304,7 +315,7 @@ keyboard {
       /* align-self: center; */
       align-items: center;
       text-align: center;
-      border-radius: 0.5rem; }
+      border-radius: var(--roundness); }
 
 .lp {
   background: var(--lp) !important; }
