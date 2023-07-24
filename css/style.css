@@ -67,6 +67,10 @@ body {
   display: grid;
   grid-template-columns: auto auto;
   margin: 2rem 0; }
+  .nav.navHamburger {
+    grid-template-columns: auto;
+    margin: -1rem 0 1rem 0;
+  }
   .nav .title {
     color: var(--text-color);
     width: min-content; }
@@ -98,30 +102,56 @@ body {
     font-size: 1em;
     line-height: 1.25em;
     padding: .5em; }
-    .nav .buttons .button {
+  .nav .buttons .button {
+    display: grid;
+    grid-auto-flow: column;
+    gap: .5rem;
+    padding: .5em;
+    background: var(--sub-alt-color);
+    border-radius: var(--roundness);
+    transition: 0.25s background, 0.25s color;
+    user-select: none;
+    cursor: pointer; }
+  .nav .buttons .button .icon {
+    text-align: right;
+    color: #555; }
+  .nav .buttons .button .text {
+    color: var(--text-color);
+    text-wrap: nowrap; }
+  .nav .buttons .button.active {
+    background: var(--text-color);
+    outline: none; }
+  .nav .buttons .button.active .text {
+    color: var(--bg-color); }
+  .nav .buttons .button:hover {
+    background: var(--text-color);
+    outline: none;
+    cursor: pointer; }
+  .nav .buttons .button:hover .text {
+    color: var(--bg-color); }
+  .nav .buttons .hamburger {
+    align-self: flex-end;
+    max-width: 2rem;
+  }
+  @media (max-width: 875px) {
+    .nav .buttons .button:not(.hamburger) {
+      display: none;
+    }
+    .nav.navHamburger .buttons {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: flex-end;
+    }
+    .nav.navHamburger .buttons .button {
       display: grid;
-      grid-auto-flow: column;
-      gap: .5rem;
-      padding: .5em;
-      background: var(--sub-alt-color);
-      border-radius: var(--roundness);
-      transition: 0.25s background, 0.25s color;
-      user-select: none;
-      cursor: pointer; }
-      .nav .buttons .button .icon {
-        color: #555; }
-      .nav .buttons .button .text {
-        color: var(--text-color);
-        text-wrap: nowrap; }
-      .nav .buttons .button:hover {
-        background: var(--text-color);
-        outline: none;
-        cursor: pointer; }
-      .nav .buttons .button:hover .text {
-        color: var(--bg-color); }
-  @media (max-width: 1024px) {
-    .nav .buttons {
-      justify-content: center;
+    }
+  }
+  @media (min-width: 876px) {
+    .nav .buttons .hamburger {
+      display: none;
+    }
+    .nav.navHamburger {
+      display: none;
     }
   }
 

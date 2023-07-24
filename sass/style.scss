@@ -73,7 +73,10 @@ body{
   display: grid;
   grid-template-columns: auto auto;
   margin: 2rem 0;
-
+  .navHamburger {
+    grid-template-columns: auto;
+    margin: -1rem 0 1rem 0;
+  }
   .title{
     color: var(--text-color);
     width: min-content;
@@ -119,11 +122,19 @@ body{
       user-select: none;
       cursor: pointer;
       .icon{
+        text-align: right;
         color: #555;
       }
       .text{
         color: var(--text-color);
         text-wrap: nowrap;
+      }
+      &.active {
+        background: var(--text-color);
+        outline: none;
+        .text {
+          color: var(--bg-color);
+        }
       }
       &:hover{
         background: var(--text-color);
@@ -134,12 +145,40 @@ body{
         }
       }
     }
+    .hamburger {
+      align-self: flex-end;
+      max-width: 2rem;
+    }
   }
 }
-@media (max-width: 1024px){
-  .nav{
-    .buttons{
-      justify-content: center;
+@media (max-width: 600px) {
+  .nav {
+    .buttons {
+      .button:not(.hamburger) {
+        display: none;
+      }
+    }
+    &.navHamburger {
+      .buttons {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: flex-end;
+        .button {
+          display: grid;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 601px) {
+  .nav {
+    .buttons {
+      .hamburger {
+        display: none;
+      }
+    }
+    &.navHamburger {
+      display: none;
     }
   }
 }
