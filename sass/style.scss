@@ -108,13 +108,13 @@ body{
     justify-content: right;
     align-content: center;
     gap: .5rem;
-    font-size: 1em;
-    line-height: 1.25em;
-    padding: .5em;
+    font-size: 1.5rem;
     .button{
       display: grid;
       grid-auto-flow: column;
       gap: .5rem;
+      width: 4rem;
+      height: 4rem;
       padding: .5em;
       background: var(--sub-alt-color);
       border-radius: var(--roundness);
@@ -122,8 +122,10 @@ body{
       user-select: none;
       cursor: pointer;
       .icon{
-        text-align: right;
-        color: #555;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--text-color);
       }
       .text{
         color: var(--text-color);
@@ -132,6 +134,9 @@ body{
       &.active {
         background: var(--text-color);
         outline: none;
+        .icon {
+          color: var(--bg-color);
+        }
         .text {
           color: var(--bg-color);
         }
@@ -140,6 +145,9 @@ body{
         background: var(--text-color);
         outline: none;
         cursor: pointer;
+        .icon{
+          color: var(--sub-alt-color);
+        }
         .text{
           color: var(--bg-color);
         }
@@ -147,11 +155,10 @@ body{
     }
     .hamburger {
       align-self: flex-end;
-      max-width: 2rem;
     }
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .nav {
     .buttons {
       .button:not(.hamburger) {
@@ -163,14 +170,20 @@ body{
         flex-direction: column;
         flex-wrap: nowrap;
         align-content: flex-end;
+        font-size: 1rem;
         .button {
           display: grid;
+          width: unset;
+          height: unset;
+          .icon {
+            justify-content: right;
+          }
         }
       }
     }
   }
 }
-@media (min-width: 601px) {
+@media (min-width: 768px) {
   .nav {
     .buttons {
       .hamburger {
