@@ -98,7 +98,7 @@ body {
     flex-wrap: wrap;
     justify-content: right;
     align-content: center;
-    gap: .5rem;
+    gap: 1rem;
     font-size: 1.5rem; }
   .nav .buttons .button {
     display: grid;
@@ -109,16 +109,18 @@ body {
     padding: .5em;
     background: var(--sub-alt-color);
     border-radius: var(--roundness);
-    transition: 0.25s background, 0.25s color;
+    transition: 0.125s background, 0.125s color;
     user-select: none;
     cursor: pointer; }
   .nav .buttons .button .icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--text-color); }
+    color: var(--text-color);
+    transition: 0.125s background, 0.125s color; }
   .nav .buttons .button .text {
     color: var(--text-color);
+    transition: 0.125s background, 0.125s color;
     text-wrap: nowrap; }
   .nav .buttons .button.active {
     background: var(--text-color);
@@ -138,7 +140,7 @@ body {
   .nav .buttons .hamburger {
     align-self: flex-end;
   }
-  @media (max-width: 767px) {
+  @media (max-width: 767.98px) {
     .nav .buttons .button:not(.hamburger) {
       display: none;
     }
@@ -182,8 +184,13 @@ body {
     text-align: center; }
   .fingerbuttons .left, .fingerbuttons .right {
     background: var(--sub-alt-color);
-    border-radius: var(--roundness);
-    padding: 1rem; }
+    border-radius: var(--roundness); }
+  .fingerbuttons .left {
+    padding: 1.5rem 6rem 1.5rem 8rem;
+  }
+  .fingerbuttons .right {
+    padding: 1.5rem 8rem 1.5rem 6rem;
+  }
   .fingerbuttons .buttons {
     display: grid;
     grid-auto-flow: column;
@@ -245,7 +252,7 @@ keyboard {
   width: 100%;
   justify-content: center;
   border-radius: var(--roundness);
-  padding: 1.5rem;
+  padding: 3rem 8rem;
   gap: 0.5rem; }
   keyboard row {
     display: grid;
@@ -266,7 +273,7 @@ keyboard {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      transition: 0.25s background;
+      transition: 0.125s background;
       cursor: pointer;
       user-select: none; }
       keyboard row key[fontSize="2"] {
@@ -306,6 +313,24 @@ keyboard {
         border-radius: 0.25rem; }
       keyboard row key:hover {
         background: var(--text-color); }
+@media (max-width: 1199px) {
+  keyboard {
+    padding: 2rem 3rem;
+  }
+  .fingerbuttons .left, .fingerbuttons .right {
+    background: var(--sub-alt-color);
+    border-radius: var(--roundness);
+    padding: 1.5rem 3rem ; }
+}
+/*@media (max-width: 768px) {*/
+/*  keyboard {*/
+/*    padding: 2rem 2rem;*/
+/*  }*/
+/*  .fingerbuttons .left, .fingerbuttons .right {*/
+/*    background: var(--sub-alt-color);*/
+/*    border-radius: var(--roundness);*/
+/*    padding: 1rem 2rem ; }*/
+/*}*/
 
 .screenshotBottom {
   color: var(--text-color);

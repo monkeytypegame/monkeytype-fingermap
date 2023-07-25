@@ -107,7 +107,7 @@ body{
     flex-wrap: wrap;
     justify-content: right;
     align-content: center;
-    gap: .5rem;
+    gap: 1rem;
     font-size: 1.5rem;
     .button{
       display: grid;
@@ -118,7 +118,7 @@ body{
       padding: .5em;
       background: var(--sub-alt-color);
       border-radius: var(--roundness);
-      transition: 0.25s background, 0.25s color;
+      transition: 0.125s background, 0.125s color;
       user-select: none;
       cursor: pointer;
       .icon{
@@ -126,9 +126,11 @@ body{
         justify-content: center;
         align-items: center;
         color: var(--text-color);
+        transition: 0.125s background, 0.125s color;
       }
       .text{
         color: var(--text-color);
+        transition: 0.125s background, 0.125s color;
         text-wrap: nowrap;
       }
       &.active {
@@ -158,7 +160,7 @@ body{
     }
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
   .nav {
     .buttons {
       .button:not(.hamburger) {
@@ -214,7 +216,12 @@ body{
   .left, .right{
     background: var(--sub-alt-color);
     border-radius: var(--roundness);
-    padding: 1.5rem;
+  }
+  .left{
+    padding: 1.5rem 6rem 1.5rem 8rem;
+  }
+  .right{
+    padding: 1.5rem 8rem 1.5rem 6rem;
   }
   .buttons{
     display: grid;
@@ -290,7 +297,7 @@ keyboard {
   width: 100%;
   justify-content: center;
   border-radius: .5rem;
-  padding: 1rem;
+  padding: 3rem 8rem;
   gap: 0.5rem;
   row {
     display: grid;
@@ -313,7 +320,7 @@ keyboard {
       flex-direction: column;
       gap: 0.5rem;
       // justify-content: center;
-      transition: 0.25s background;
+      transition: 0.125s background;
       cursor: pointer;
       user-select: none;
       &[fontSize="2"] {

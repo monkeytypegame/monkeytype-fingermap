@@ -30,7 +30,7 @@ export function init(layout) {
 
   const scaleRefEl = document.querySelector(".ratioScalingSpacer");
   const scaleTargetEl = document.querySelector(".keyboardFingersWrapper");
-  const MAX_SCALE = 2;
+  const MAX_SCALE = 1;
   const resizeObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
       let scale = Math.min(
