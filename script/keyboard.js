@@ -30,7 +30,7 @@ export function init(layout) {
 
   const scaleRefEl = document.querySelector(".ratioScalingSpacer");
   const scaleTargetEl = document.querySelector(".keyboardFingersWrapper");
-  const MAX_SCALE = .9;
+  const MAX_SCALE = 1;
   const resizeObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
       let scale = Math.min(
@@ -38,8 +38,9 @@ export function init(layout) {
           entry.contentRect.height / scaleTargetEl.offsetHeight
       );
       scale = Math.min(scale, MAX_SCALE);
-      scaleTargetEl.style.transform = `translate(-50%, -50%) scale(${scale})`;
-      scaleTargetEl.style.top = (.5 * entry.contentRect.height) + "px";
+      scaleTargetEl.style.transformOrigin = "center top";
+      scaleTargetEl.style.transform = `translate(-50%, 0) scale(${scale})`;
+      scaleTargetEl.style.top = "0px";
       scaleTargetEl.style.left = (.5 * entry.contentRect.width) + "px";
     }
   });
