@@ -1,6 +1,4 @@
-// import * as Mousemenu from './mousemenu.js';
 import * as Fingers from './fingers.js';
-import * as Shift from './shift.js';
 import * as Util from './util.js';
 
 export let current = Fingers.list.li.code;

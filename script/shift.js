@@ -1,5 +1,3 @@
-import * as Mousemenu from './mousemenu.js';
-
 export let left = false;
 export let right = false;
 
