@@ -8,6 +8,7 @@ let eslintConfig = {
   globals: ["jQuery", "$", "html2canvas", "ClipboardItem"],
   parserOptions: {
     sourceType: "module",
+    ecmaVersion: 2020,
   },
   rules: {
     "constructor-super": "error",
@@ -61,7 +62,7 @@ let eslintConfig = {
     "no-unsafe-negation": "error",
     "no-unused-labels": "error",
     "no-unused-vars": ["warn", { argsIgnorePattern: "e|event" }],
-    "no-use-before-define": "warn",
+    "no-use-before-define": ["warn", { "functions": false }],
     "no-useless-catch": "error",
     "no-useless-escape": "error",
     "no-with": "error",
@@ -94,6 +95,10 @@ gulp.task("copy-lib", () => {
   return gulp.src("lib/**/*").pipe(gulp.dest("build/lib"));
 });
 
+gulp.task("copy-images", () => {
+  return gulp.src("images/**/*").pipe(gulp.dest("build/images"));
+})
+
 gulp.task("lint", function () {
   return gulp
     .src("script/*.js")
@@ -103,7 +108,7 @@ gulp.task("lint", function () {
 });
 
 gulp.task("compile", (done) => {
-  gulp.series(["clean", "styles", "copy-js", "copy-html", "copy-lib", "lint"])(
+  gulp.series(["clean", "styles", "copy-js", "copy-html", "copy-lib", "copy-images", "lint"])(
     done
   );
 });
