@@ -33,8 +33,8 @@ jobs:
           mv build/* .
           git add -A
           git commit -m "Auto-deployed by GitHub Actions"
-          git branch -D main
-          git branch -m main
-          git push -f origin main:gh-pages
+          git branch -D master
+          git branch -m master
+          git push -f origin master:gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
