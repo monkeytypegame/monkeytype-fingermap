@@ -1,0 +1,535 @@
+@import "https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap";
+:root {
+  --bg-color: #323437;
+  --main-color: #e2b714;
+  --caret-color: #e2b714;
+  --sub-color: #646669;
+  --sub-alt-color: #2c2e31;
+  --text-color: #d1d0c5;
+  --error-color: #ca4754;
+  --error-extra-color: #7e2a33;
+  --colorful-error-color: #ca4754;
+  --colorful-error-extra-color: #7e2a33;
+  --roundness: 0.5rem;
+  --lp: #ffcdd2;
+  --lr: #f87680;
+  --lm: #e92832;
+  --li: #9a191c;
+  --lt: #531313;
+  --rt: #09243d;
+  --ri: #125490;
+  --rm: #1786e7;
+  --rr: #67b3f3;
+  --rp: #BBDEFB;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-color);
+  font-family: "Roboto Mono";
+  justify-content: center;
+  color: var(--text-color);
+}
+
+.content {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.mousemenu {
+  color: #ccc;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  z-index: 999;
+  display: grid;
+}
+.mousemenu .top {
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+}
+.mousemenu box {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 1rem;
+  border-radius: 0.25rem;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 2rem 0;
+}
+.nav.navHamburger {
+  grid-template-columns: auto;
+  margin: -1rem 0 1rem 0;
+}
+.nav .title {
+  color: var(--text-color);
+  width: min-content;
+}
+.nav .title .top {
+  font-family: "lexend deca";
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+}
+.nav .title .bottom {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "lexend deca";
+  font-size: 0.75rem;
+  color: var(--sub-color);
+}
+.nav .title .bottom img {
+  filter: saturate(0);
+  height: 1.75em;
+  width: 1.75em;
+  opacity: 0.5;
+}
+.nav .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+  align-content: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+.nav .buttons .button {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.5rem;
+  width: 4rem;
+  height: 4rem;
+  padding: 0.5em;
+  background: var(--sub-alt-color);
+  border-radius: var(--roundness);
+  transition: 0.125s background, 0.125s color;
+  user-select: none;
+  cursor: pointer;
+}
+.nav .buttons .button .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  transition: 0.125s background, 0.125s color;
+}
+.nav .buttons .button .text {
+  color: var(--text-color);
+  transition: 0.125s background, 0.125s color;
+  text-wrap: nowrap;
+}
+.nav .buttons .button.active {
+  background: var(--text-color);
+  outline: none;
+}
+.nav .buttons .button.active .icon {
+  color: var(--bg-color);
+}
+.nav .buttons .button.active .text {
+  color: var(--bg-color);
+}
+.nav .buttons .button:hover {
+  background: var(--text-color);
+  outline: none;
+  cursor: pointer;
+}
+.nav .buttons .button:hover .icon {
+  color: var(--sub-alt-color);
+}
+.nav .buttons .button:hover .text {
+  color: var(--bg-color);
+}
+.nav .buttons .hamburger {
+  align-self: flex-end;
+}
+
+@media (max-width: 767.98px) {
+  .nav .buttons .button:not(.hamburger) {
+    display: none;
+  }
+  .nav.navHamburger .buttons {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-end;
+    font-size: 1rem;
+  }
+  .nav.navHamburger .buttons .button {
+    display: grid;
+    width: unset;
+    height: unset;
+  }
+  .nav.navHamburger .buttons .button .icon {
+    justify-content: right;
+  }
+}
+@media (min-width: 768px) {
+  .nav .buttons .hamburger {
+    display: none;
+  }
+  .nav.navHamburger {
+    display: none;
+  }
+}
+.tips {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--sub-color);
+}
+
+.fingerbuttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+.fingerbuttons .title {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.fingerbuttons .left, .fingerbuttons .right {
+  background: var(--sub-alt-color);
+  border-radius: var(--roundness);
+}
+.fingerbuttons .left {
+  padding: 1.5rem 6rem 1.5rem 8rem;
+}
+.fingerbuttons .right {
+  padding: 1.5rem 8rem 1.5rem 6rem;
+}
+.fingerbuttons .buttons {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1.5rem;
+  justify-items: center;
+}
+.fingerbuttons .buttons .button {
+  background: #333;
+  color: transparent;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  font-size: 2.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 1rem;
+  height: min-content;
+  cursor: pointer;
+  transition: 0.125s background, 0.125s color;
+  user-select: none;
+  height: 5rem;
+  width: 5rem;
+}
+.fingerbuttons .buttons .button.active {
+  color: rgba(0, 0, 0, 0.75);
+}
+.fingerbuttons .buttons .button:hover {
+  color: rgba(0, 0, 0, 0.25);
+}
+.fingerbuttons .buttons .button:hover.active {
+  color: rgba(0, 0, 0, 0.75);
+}
+.fingerbuttons .buttons .button.li, .fingerbuttons .buttons .button.lr, .fingerbuttons .buttons .button.ri, .fingerbuttons .buttons .button.rr {
+  margin-top: 0.25rem;
+}
+.fingerbuttons .buttons .button.lp, .fingerbuttons .buttons .button.rp {
+  margin-top: 1.5rem;
+}
+.fingerbuttons .buttons .button.lt, .fingerbuttons .buttons .button.rt {
+  margin-top: 3.5rem;
+}
+.fingerbuttons .buttons .button:hover {
+  background: #444;
+  cursor: pointer;
+}
+
+@media (max-width: 1199px) {
+  .fingerbuttons.left, .fingerbuttons.right {
+    background: var(--sub-alt-color);
+    border-radius: var(--roundness);
+    padding: 1.5rem 3rem;
+  }
+}
+.ratioScalingContainer {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-top: 50%;
+  /* WARN: Calc based on keyboard & fingers aspect ratio (not keyboard alone). */
+  /* TODO: Separate keyboard + fingers scaling & lift aspect ratio to config */
+}
+
+.ratioScalingSpacer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.keyboardFingersWrapper {
+  position: absolute;
+}
+
+keyboard {
+  background: var(--sub-alt-color);
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  border-radius: var(--roundness);
+  padding: 3rem 8rem;
+  gap: 0.5rem;
+}
+keyboard row {
+  display: grid;
+  grid-auto-flow: column;
+  width: min-content;
+  gap: 0.5rem;
+  justify-content: space-between;
+  width: 100%;
+}
+keyboard row key {
+  position: relative;
+  border-radius: var(--roundness);
+  font-size: 1rem;
+  width: 5rem;
+  height: 5rem;
+  background: var(--sub-color);
+  color: var(--sub-alt-color);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: 0.125s background;
+  cursor: pointer;
+  user-select: none;
+}
+keyboard row key[fontSize="2"] {
+  font-size: 1.25rem;
+}
+keyboard row key[size="1.25"] {
+  width: 6.25rem;
+}
+keyboard row key[size="1.5"] {
+  width: 7.5rem;
+}
+keyboard row key[size="1.75"] {
+  width: 8.75rem;
+}
+keyboard row key[size="2"] {
+  width: 10rem;
+}
+keyboard row key[size="2.1"] {
+  width: 10.5rem;
+}
+keyboard row key[size="2.25"] {
+  width: 11.25rem;
+}
+keyboard row key[size="2.5"] {
+  width: 12.5rem;
+}
+keyboard row key[size="2.75"] {
+  width: 14.75rem;
+}
+keyboard row key[size="6.25"] {
+  width: 31.25rem;
+}
+keyboard row key[size="6.5"] {
+  width: 33.5rem;
+}
+keyboard row key[size="4"] {
+  width: 22rem;
+}
+keyboard row key[size="5"] {
+  width: 27rem;
+}
+keyboard row key[homing=yes]::after {
+  content: "";
+  position: absolute;
+  background: var(--sub-alt-color);
+  height: 0.25rem;
+  top: 4rem;
+  left: 1.5rem;
+  width: 2rem;
+  border-radius: 0.25rem;
+}
+keyboard row key:hover {
+  background: var(--text-color);
+}
+
+@media (max-width: 1199px) {
+  keyboard {
+    padding: 2rem 3rem;
+  }
+}
+.screenshotBottom {
+  color: var(--text-color);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin-top: 1rem;
+  gap: 1rem;
+  align-items: center;
+}
+.screenshotBottom .fingers {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1rem;
+}
+.screenshotBottom .fingers .finger {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.screenshotBottom .fingers .finger .box {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+}
+.screenshotBottom .fingers .finger .text {
+  font-size: 0.75rem;
+}
+.screenshotBottom .url {
+  text-align: right;
+}
+
+#notificationCenter {
+  width: 350px;
+  z-index: 99999999;
+  display: grid;
+  gap: 1rem;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+}
+#notificationCenter .history {
+  display: grid;
+  gap: 1rem;
+}
+#notificationCenter .notif {
+  user-select: none;
+  position: relative;
+  background: #333;
+  color: #ccc;
+  display: grid;
+  grid-template-columns: min-content auto min-content;
+  border-radius: var(--roundness);
+  border-width: 0.25rem;
+}
+#notificationCenter .notif .icon {
+  color: #ccc;
+  opacity: 0.5;
+  padding: 1rem 1rem;
+  align-items: center;
+  display: grid;
+  font-size: 1.25rem;
+}
+#notificationCenter .notif .message {
+  padding: 1rem 1rem 1rem 0;
+}
+#notificationCenter .notif .message .title {
+  color: #ccc;
+  font-size: 0.75em;
+  opacity: 0.5;
+  line-height: 0.75rem;
+}
+#notificationCenter .notif.good {
+  background-color: #388E3C;
+}
+#notificationCenter .notif.bad {
+  background-color: var(--li);
+}
+#notificationCenter .notif:hover {
+  cursor: pointer;
+}
+#notificationCenter .notif:hover::after {
+  opacity: 1;
+}
+#notificationCenter .notif::after {
+  transition: 0.125s;
+  font-family: "Font Awesome 5 Free";
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  font-weight: 900;
+  content: "\f00d";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: var(--bg-color);
+  font-size: 2.5rem;
+  display: grid;
+  /* align-self: center; */
+  align-items: center;
+  text-align: center;
+  border-radius: var(--roundness);
+}
+
+.lp {
+  background: var(--lp) !important;
+}
+
+.lr {
+  background: var(--lr) !important;
+}
+
+.lm {
+  background: var(--lm) !important;
+}
+
+.li {
+  background: var(--li) !important;
+}
+
+.lt {
+  background: var(--lt) !important;
+}
+
+.rp {
+  background: var(--rp) !important;
+}
+
+.rr {
+  background: var(--rr) !important;
+}
+
+.rm {
+  background: var(--rm) !important;
+}
+
+.ri {
+  background: var(--ri) !important;
+}
+
+.rt {
+  background: var(--rt) !important;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
