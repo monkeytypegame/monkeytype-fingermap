@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp compile && gulp watch"
+    "dev": "gulp compile && gulp watch",
+    "build": "gulp compile"
   },
   "author": "",
   "license": "ISC",
